@@ -18,7 +18,7 @@ const notification = (props) => {
     })
 }
 const warningNotification = (props) => {
-    toast.warn(`⚠️${props}`, {
+    toast.info(`⚠️${props}`, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,

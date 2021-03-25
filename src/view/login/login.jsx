@@ -3,6 +3,7 @@ import './login.css'
 import {
   notification,
   warningNotification,
+  errorNotification,
 } from '../../components/toastify/toastify'
 
 import firebase from '../../config/firebase'
@@ -20,7 +21,19 @@ function Login() {
         notification('Logado com sucesso')
       })
       .catch((erro) => {
-        console.log(erro)
+        console.log(erro.message)
+        switch (erro.message) {
+          case 'The email address is badly formatted.':
+            warningNotification('O email não está formatado corretamente')
+            break
+          case 'There is no user record corresponding to this identifier. The user may have been deleted.':
+            warningNotification(
+              'Os dados não são compativeis com nenhum usuário cadastrado, favor verificar'
+            )
+            break
+          default:
+            break
+        }
       })
   }
 

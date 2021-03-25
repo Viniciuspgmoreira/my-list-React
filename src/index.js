@@ -6,7 +6,7 @@ import NewUser from '../src/view/new-user/newUser'
 
 ReactDOM.render(
   <React.StrictMode>
-    <NewUser />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root')
 )

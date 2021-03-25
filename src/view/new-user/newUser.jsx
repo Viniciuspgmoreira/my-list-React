@@ -6,6 +6,7 @@ import Input from '../../components/input/input.component'
 import {
   notification,
   errorNotification,
+  warningNotification,
 } from '../../components/toastify/toastify'
 
 function NewUser() {
@@ -13,13 +14,32 @@ function NewUser() {
   const [password, setPassword] = useState()
 
   function register() {
-    if (!email) {
-      errorNotification('Email está preenchido incorretamente')
-    } else if (!password) {
-      errorNotification('Senha foi preenchida incorretamente')
-    } else if (/\s/.test(email)) {
-      errorNotification('Não pode conter espaços em branco no Usuário')
-    }
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((resp) => {
+        notification('Cadastrado com Sucesso')
+      })
+      .catch((erro) => {
+        switch (erro.message) {
+          case 'Password should be at least 6 characters':
+            warningNotification('A senha deve ter pelo menos 6 caracteres!')
+            break
+          case 'The email address is already in use by another account.':
+            warningNotification(
+              'Este email já está sendo utilizado por outro usuário!'
+            )
+            break
+          case 'The email address is badly formatted.':
+            warningNotification('O formato do seu email é inválido!')
+            break
+          default:
+            errorNotification(
+              'Não foi possível cadastrar. Tente novamente mais tarde!'
+            )
+            break
+        }
+      })
   }
 
   return (
