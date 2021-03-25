@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import './login.css'
+import { Link } from 'react-router-dom'
+import firebase from '../../config/firebase'
+import 'firebase/auth'
 import {
   notification,
   warningNotification,
-  errorNotification,
 } from '../../components/toastify/toastify'
 
-import firebase from '../../config/firebase'
-import 'firebase/auth'
+import './login.css'
 
 function Login() {
   const [email, setEmail] = useState()
@@ -19,6 +19,9 @@ function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((resp) => {
         notification('Logado com sucesso')
+        setTimeout(() => {
+          document.location.pathname = '/home'
+        }, 3000)
       })
       .catch((erro) => {
         console.log(erro.message)
@@ -70,12 +73,12 @@ function Login() {
           Entrar
         </button>
         <div className="login-options">
-          <a href="/#" className="mx-2  text-center">
+          <Link to="/" className="mx-2  text-center">
             Recuperar Senha
-          </a>
-          <a href="/#" className="mx-2  text-center">
+          </Link>
+          <Link to="newUser" className="mx-2  text-center">
             Cadastrar
-          </a>
+          </Link>
           <p className="mt-5 mb-3 text-muted text-center">&copy;2020-2021</p>
         </div>
       </form>
