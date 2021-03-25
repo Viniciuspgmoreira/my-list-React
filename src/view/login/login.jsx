@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login.css'
 import {
   notification,
   warningNotification,
 } from '../../components/toastify/toastify'
 
+import firebase from '../../config/firebase'
+import 'firebase/auth'
+
 function Login() {
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  function logar() {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((resp) => {
+        notification('Logado com sucesso')
+      })
+      .catch((erro) => {
+        console.log(erro)
+      })
+  }
+
   return (
     <div className="login-content d-flex align-items-center">
       <form className="form-signin mx-auto">
@@ -20,6 +38,7 @@ function Login() {
           id="inputEmail"
           className="form-control my-2"
           placeholder="Digite o Email..."
+          onChange={(e) => setEmail(e.target.value)}
         ></input>
 
         <input
@@ -27,20 +46,21 @@ function Login() {
           id="inputPassword"
           className="form-control my-2"
           placeholder="Digite a Senha..."
+          onChange={(e) => setPassword(e.target.value)}
         ></input>
 
         <button
           className="btn btn-lg btn-secondary btn-block btn-login"
-          type="submit"
-          onClick={() => notification('Olá')}
+          type="button"
+          onClick={logar}
         >
           Entrar
         </button>
         <div className="login-options">
-          <a href="#" className="mx-2  text-center">
+          <a href="/#" className="mx-2  text-center">
             Recuperar Senha
           </a>
-          <a href="#" className="mx-2  text-center">
+          <a href="/#" className="mx-2  text-center">
             Cadastrar
           </a>
           <p className="mt-5 mb-3 text-muted text-center">&copy;2020-2021</p>

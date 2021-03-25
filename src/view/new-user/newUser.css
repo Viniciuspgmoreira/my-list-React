@@ -1,0 +1,11 @@
+.form-login {
+  max-width: 650px;
+}
+
+.btn-register {
+  background: #1a67b4e5;
+}
+
+.btn-register:hover {
+  background: rgba(58, 132, 206, 0.898);
+}
