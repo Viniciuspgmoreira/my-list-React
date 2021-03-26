@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import firebase from '../../config/firebase'
 import 'firebase/auth'
 import './newUser.css'
-import Input from '../../components/input/input.component'
+import Button from '@material-ui/core/Button'
+import Navbar from '../../components/navbar/navbar'
 import {
   notification,
   errorNotification,
@@ -12,6 +13,8 @@ import {
 function NewUser() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [visible, setVisible] = useState('password')
+  const [eyeSlash, seteyeSlash] = useState('fa fa-eye toggle-eye')
 
   function register() {
     firebase
@@ -42,32 +45,82 @@ function NewUser() {
       })
   }
 
+  function showPassword(props) {
+    let visible = props
+    console.log(props)
+    if (visible === 'password') {
+      setVisible('text')
+    } else if (visible !== 'password') {
+      setVisible('password')
+    }
+  }
+  function showIcon(props) {
+    let eyeSlash = props
+    if (eyeSlash === 'fa fa-eye toggle-eye') {
+      seteyeSlash('fa fa-eye-slash toggle-eye')
+    } else {
+      seteyeSlash('fa fa-eye toggle-eye')
+    }
+  }
+
   return (
-    <div className="form-cadastro">
-      <form className="text-center form-login mx-auto mt-5">
-        <h1 className="h3 mb-3 text-black font-weight-bold">Cadastro</h1>
-        <Input
-          type="email"
-          placeholder="E-mail"
-          id="inputEmail"
-          onChange={(e) => setEmail(e.target.value)}
-        ></Input>
-        <Input
-          type="password"
-          placeholder="Senha"
-          id="inputPassword"
-          onChange={(e) => setPassword(e.target.value)}
-        ></Input>
-        <button
-          type="button"
-          className="btn btn-lg btn-block mt-3 mb-5 btn-register"
-          onClick={register}
-        >
-          Cadastrar
-        </button>
-      </form>
+    <div className="container-fluid div_main_register">
+      <Navbar></Navbar>
+      <div className="board_register">
+        <form className="text-center form-login mx-auto">
+          <h3 className="mb-3 font-weight-bold">Cadastrar novo Usuário</h3>
+          <div className="email_input_register">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <input
+              id="email"
+              type="email"
+              className="form-control my-2"
+              placeholder="Email..."
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            ></input>
+          </div>
+          <div className="password_input_register">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input
+              type={visible}
+              className="form-control my-2"
+              placeholder="Senha"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            ></input>
+            <i
+              className={eyeSlash}
+              aria-hidden="true"
+              onClick={() => {
+                showPassword(visible)
+                showIcon(eyeSlash)
+              }}
+            ></i>
+          </div>
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            className="mx-3"
+            onClick={register}
+          >
+            Salvar
+          </Button>
+          <Button
+            variant="contained"
+            size="medium"
+            color="secondary"
+            onClick={(e) => {
+              setPassword('')
+              setEmail('')
+            }}
+          >
+            Cancelar
+          </Button>
+        </form>
+      </div>
     </div>
   )
 }
-
 export default NewUser

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
 .login-content {
   height: 100vh;
   width: 100%;
@@ -8,14 +10,15 @@
 
 .btn-login {
   width: 100%;
-  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+  background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
   transition: ease-out 0.3s;
 }
 .btn-login:hover {
-  background: linear-gradient(to right, #bdc3c793, #2c3e50ce);
+  background: linear-gradient(to bottom, #bdc3c7b7, #2d5a88);
 }
-
 .login-options {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   align-items: center;
   justify-content: center;
@@ -24,8 +27,28 @@
 .login-options a {
   transition: ease-in 0.2s;
   text-decoration: none;
-  color: #bdc3c793;
+  color: #000000;
+  padding: 5px;
 }
 .login-options a:hover {
-  color: #bdc3c7;
+  color: #2a6299;
+}
+
+div .div_main_login {
+  background: linear-gradient(to right, #f9f9f9, #f9f9f9be);
+  display: flex;
+  margin: auto;
+  width: 400px;
+  height: 550px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.h1_title {
+  font-family: 'New Tegomin', serif;
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 30px;
 }

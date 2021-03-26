@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../navbar/navbar.css'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [visible, setVisible] = useState('')
@@ -18,7 +19,7 @@ function Navbar() {
     )
   }
 
-  function openNav(props) {
+  function openNav() {
     return (
       <button
         className="nav-btn open-btn"
@@ -29,7 +30,7 @@ function Navbar() {
     )
   }
 
-  function closeNav(props) {
+  function closeNav() {
     return (
       <button onClick={() => setVisible('')} className="nav-btn close-btn">
         <i className="fas fa-times"></i>
@@ -49,22 +50,26 @@ function Navbar() {
             </div>
             <ul className="list">
               <li>
-                <a href="#">Teams</a>
+                <i className="fa fa-user mx-2">
+                  &nbsp; <Link to="/">Login</Link>
+                </i>
               </li>
               <li>
-                <a href="#">Locations</a>
+                <i className="fa fa-plus mx-2">
+                  &nbsp; <Link to="/newUser">Cadastrar</Link>
+                </i>
               </li>
               <li>
-                <a href="#">Life</a>
+                <i class="fas fa-chalkboard-teacher">
+                  &nbsp; <Link to="/registerEvent">Eventos</Link>
+                </i>
               </li>
-              <ul>
-                <li>
-                  <a href="#">How to do it</a>
-                </li>
-                <li>
-                  <a href="#">Witch API</a>
-                </li>
-              </ul>
+              <li>
+                <a href="#">Meus Eventos</a>
+              </li>
+              <li>
+                <a href="#">Sair</a>
+              </li>
             </ul>
           </div>
         </div>

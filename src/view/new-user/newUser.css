@@ -1,11 +1,64 @@
+.div_main_register {
+  height: 100vh;
+  background: linear-gradient(to right, #141e30, #243b55);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+div.board_register {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #f9f9f9, #f9f9f9be);
+  left: 50%;
+  top: 50%;
+  border: 3px solid rgba(245, 242, 242, 0.911);
+  width: 380px;
+  height: 250px;
+  border-radius: 8px;
+}
+
+div .email_input_register {
+  display: flex;
+  flex-direction: row;
+  padding: 7px;
+  margin: auto;
+  align-items: center;
+}
+div .password_input_register {
+  display: flex;
+  flex-direction: row;
+  padding: 7px;
+  margin: auto;
+  align-items: center;
+}
+
+div .email_input_register i {
+  position: relative;
+  padding: 4px;
+  font-size: 18px;
+}
+div .password_input_register i {
+  position: relative;
+  padding: 4px;
+  font-size: 18px;
+}
+
+.ui-button {
+  padding: 50px;
+}
+
+.toggle-eye {
+  font-size: 10px !important;
+  margin-right: -20px !important;
+  cursor: pointer;
+}
+
 .form-login {
-  max-width: 650px;
-}
-
-.btn-register {
-  background: #1a67b4e5;
-}
-
-.btn-register:hover {
-  background: rgba(58, 132, 206, 0.898);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: auto;
 }

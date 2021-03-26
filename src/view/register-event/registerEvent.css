@@ -1,0 +1,59 @@
+:root {
+  --aside-width: 225px;
+}
+
+.div_register_event {
+  height: 100vh;
+  background: linear-gradient(to right, #141e30, #243b55);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  display: grid;
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'nav main';
+}
+
+.menu-area {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 25px;
+}
+
+/* div .row h3 {
+  font-size: 30px;
+  margin: auto;
+  padding: 15px;
+} */
+
+button .open-btn {
+  grid-area: nav;
+}
+
+main.menu-area {
+  grid-area: main;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* form {
+  width: 60%;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+} */
+
+/* div.form-group {
+  padding: 10px;
+  margin: 5px;
+  border: solid 1px black;
+} */
