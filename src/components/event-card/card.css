@@ -1,0 +1,45 @@
+.rodape-card {
+  color: #050000;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-detalhes {
+  background-color: #f9f9f9;
+}
+
+.card-text {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.img-cartao {
+  max-height: 200px;
+  min-width: 100%;
+  border: 5px solid #f9f9f9af;
+  padding: 0px;
+}
+
+.rowDiv {
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-body {
+  color: #0a0101;
+  background: linear-gradient(to right, #f9f9f9, #f9f9f9be);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.border-card {
+  background: linear-gradient(to right, #d6d3d3, #f9f9f9be);
+  border: 2px solid #f9f9f9af;
+  padding: 20px;
+  margin: 10px;
+}
