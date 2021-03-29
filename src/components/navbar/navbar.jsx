@@ -61,14 +61,14 @@ function Navbar() {
               </li>
               <li>
                 <i class="fas fa-chalkboard-teacher">
-                  &nbsp; <Link to="/registerEvent">Eventos</Link>
+                  &nbsp; <Link to="/home">Eventos</Link>
                 </i>
               </li>
               <li>
-                <a href="#">Meus Eventos</a>
+                <Link to="/events/mine">Meus Eventos</Link>
               </li>
               <li>
-                <a href="#">Sair</a>
+                <Link to="/registerEvent">Adicionar Evento</Link>
               </li>
             </ul>
           </div>

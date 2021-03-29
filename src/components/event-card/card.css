@@ -6,7 +6,7 @@
 }
 
 .btn-detalhes {
-  background-color: #f9f9f9;
+  background-color: #999898;
 }
 
 .card-text {
@@ -16,8 +16,9 @@
 
 .img-cartao {
   max-height: 200px;
+  min-height: 100px;
   min-width: 100%;
-  border: 5px solid #f9f9f9af;
+  border: 5px solid #8f8e8eaf;
   padding: 0px;
 }
 
@@ -30,7 +31,7 @@
 
 .card-body {
   color: #0a0101;
-  background: linear-gradient(to right, #f9f9f9, #f9f9f9be);
+  background: #999898;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -38,7 +39,7 @@
 }
 
 .border-card {
-  background: linear-gradient(to right, #d6d3d3, #f9f9f9be);
+  background: #f9f9f9af;
   border: 2px solid #f9f9f9af;
   padding: 20px;
   margin: 10px;

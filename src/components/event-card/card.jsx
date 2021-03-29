@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../event-card/card.css'
 import firebase from '../../config/firebase'
 
-function Card({ key, img, file, details, visualizations, title }) {
+function Card({ id, key, img, file, details, visualizations, title }) {
   const [urlImage, setUrlImage] = useState()
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Card({ key, img, file, details, visualizations, title }) {
       .ref(`imagens/${img}`)
       .getDownloadURL()
       .then((url) => setUrlImage(url))
-  }, [])
+  }, [urlImage])
 
   return (
     <div className="col-md-3 col-sm-12 border-card">
@@ -26,7 +26,7 @@ function Card({ key, img, file, details, visualizations, title }) {
         <p className="card-text text-justify">{details}</p>
         <div className="rodape-card align-items-center">
           <div className="col-6 row">
-            <Link to="/" className="btn btn-sm btn-detalhes">
+            <Link to={'/eventdetails' + id} className="btn btn-sm btn-detalhes">
               +detalhes
             </Link>
             <div className="col-6">

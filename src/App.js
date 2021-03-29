@@ -14,6 +14,7 @@ function App() {
         <Route exact path="/" component={Login}></Route>
         <Route exact path="/newUser" component={NewUser}></Route>
         <Route exact path="/home" component={Home}></Route>
+        <Route exact path="/events/:parametro" component={Home}></Route>
         <Route exact path="/recoveryPassword" component={RecoveryPassword}></Route>
         <Route exact path="/registerEvent" component={RegisterEvent}></Route>
       </BrowserRouter>
